@@ -53,3 +53,31 @@ print(f"Total: {sum}")
 for x in range(4):  # excludes this digit
     for y in range(2):
         print(f"{x}, {y}")
+
+# PRINT AN F
+x_per_row = [5, 2, 5, 2, 2]
+for x_count in x_per_row:
+    output = ""
+    for count in range(x_count):
+        output += "x"
+    print(output)
+
+# FIND BIGGEST N
+numberss = [1, 2, 3, 4, 5]
+max = numberss[0]
+for n in numberss:
+    if n > max:
+        max = n
+print(max)
+
+# 2D LISTS
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(matrix[0][0])
+
+for row in matrix:
+    for item in row:
+        print (item)

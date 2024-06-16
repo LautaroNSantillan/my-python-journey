@@ -42,42 +42,96 @@
 #             print("invalid command")
 
 # FOR LOOP
-prices = [1,2,3]
-sum = 0
-for price in prices:
-    sum += price
-print(f"Total: {sum}")
+# prices = [1,2,3]
+# sum = 0
+# for price in prices:
+#     sum += price
+# print(f"Total: {sum}")
 
 # NESTED LOOP
 
-for x in range(4):  # excludes this digit
-    for y in range(2):
-        print(f"{x}, {y}")
-
+# for x in range(4):  # excludes this digit
+#     for y in range(2):
+#         print(f"{x}, {y}")
+#
 # PRINT AN F
-x_per_row = [5, 2, 5, 2, 2]
-for x_count in x_per_row:
-    output = ""
-    for count in range(x_count):
-        output += "x"
-    print(output)
+# x_per_row = [5, 2, 5, 2, 2]
+# for x_count in x_per_row:
+#     output = ""
+#     for count in range(x_count):
+#         output += "x"
+#     print(output)
 
 # FIND BIGGEST N
-numberss = [1, 2, 3, 4, 5]
-max = numberss[0]
-for n in numberss:
-    if n > max:
-        max = n
-print(max)
+# numbers = [1, 3, 3, 3, 2, 4, 5]
+# max = numbers[0]
+# for n in numbers:
+#     if n > max:
+#         max = n
+# print(max)
 
 # 2D LISTS
-matrix = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-]
-print(matrix[0][0])
+# matrix = [
+#     [1,2,3],
+#     [4,5,6],
+#     [7,8,9]
+# ]
+# print(matrix[0][0])
+#
+# for row in matrix:
+#     for item in row:
+#         print(item)
+#
+# numbers.append(13)
+# numbers.insert(0, 0)
+# numbers.remove(3)
+# numbers.pop()  # removes last item
+# print(50 in numbers)
+# print(numbers.count(1))
+# numbers.sort()
+# numbers.reverse()
+# numbers2 = numbers.copy()
+# print(numbers2)
+#
+# uniques = []
+# for number in numbers:
+#     if number not in uniques:
+#         uniques.append(number)
+# print(uniques)
+#
+# unpacking
+# coor = (1, 2, 3)
+# x, y, z = coor
+#
+# dictionaries
+# customer = {  # keys should be unique
+#     "name": "Doe",
+#     "age": 30,
+#     "bool": True
+# }
+# print(customer["name"])
+# print(customer.get("default", "default"))
+#
+# phone = input("phone")
+# digits_mapping = {
+#     "1": "one",
+#     "2": "two",
+#     "3": "three",
+#     "4": "four"
+# }
+# output = ""
+# for ch in phone:
+#     output += digits_mapping.get(ch, "?")+" "
+# print(output)
 
-for row in matrix:
-    for item in row:
-        print (item)
+# EMOJI
+msg = input(">")
+split = msg.split(" ")
+emojis_dict = {
+    ":)": "smile",
+    ":(": "sad"
+}
+output = ""
+for word in split:
+    output += emojis_dict.get(word, word)
+print(output)

@@ -125,20 +125,36 @@
 # print(output)
 
 # EMOJI
-# msg = input(">")
-# split = msg.split(" ")
-# emojis_dict = {
-#     ":)": "smile",
-#     ":(": "sad"
-# }
-# output = ""
-# for word in split:
-#     output += emojis_dict.get(word, word)
-# print(output)
-
-def greet_user(name):
-    print("Hi")
-    print(f"Hi {name}")
+def emoji_conv(msg):
+    split = msg.split(" ")
+    emojis_dict = {
+        ":)": "smile",
+        ":(": "sad"
+    }
+    output = ""
+    for word in split:
+        output += emojis_dict.get(word, word)
+    return output
 
 
-greet_user("doe")
+# msgg = input(">")
+# print(emoji_conv(msgg))
+
+# def greet_user(name, last):
+#     print("Hi")
+#     print(f"Hi {name} {last}")
+# greet_user("john", last="doe")
+
+# def square(n):
+#     return n*n
+# print(square(2))
+
+try:
+    age = int(input("age "))
+    income = 200
+    risk = income / age
+    print(age)
+except ValueError:
+    print("invalid")
+except ZeroDivisionError:
+    print("age cannot be 0")

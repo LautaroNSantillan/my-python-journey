@@ -125,13 +125,20 @@
 # print(output)
 
 # EMOJI
-msg = input(">")
-split = msg.split(" ")
-emojis_dict = {
-    ":)": "smile",
-    ":(": "sad"
-}
-output = ""
-for word in split:
-    output += emojis_dict.get(word, word)
-print(output)
+# msg = input(">")
+# split = msg.split(" ")
+# emojis_dict = {
+#     ":)": "smile",
+#     ":(": "sad"
+# }
+# output = ""
+# for word in split:
+#     output += emojis_dict.get(word, word)
+# print(output)
+
+def greet_user(name):
+    print("Hi")
+    print(f"Hi {name}")
+
+
+greet_user("doe")

@@ -149,12 +149,80 @@ def emoji_conv(msg):
 #     return n*n
 # print(square(2))
 
-try:
-    age = int(input("age "))
-    income = 200
-    risk = income / age
-    print(age)
-except ValueError:
-    print("invalid")
-except ZeroDivisionError:
-    print("age cannot be 0")
+# try:
+#     age = int(input("age "))
+#     income = 200
+#     risk = income / age
+#     print(age)
+# except ValueError:
+#     print("invalid")
+# except ZeroDivisionError:
+#     print("age cannot be 0")
+
+class Point:
+    def __init__(self,x ,y):
+        self.x = x
+        self.y = y
+    def move(self):
+        print("move")
+
+    def draw(self):
+        print("draw")
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def talk(self):
+        print(f"Hi my name is {self.name}")
+
+
+person1 = Person("Jonn")
+person1.talk()
+
+
+class Animal:
+    def walk(self):
+        print("walk")
+
+
+import utils
+from converters import kg_to_lbs
+
+
+class Dog(Animal):  # inheritance, use pass for an empty class
+    def bark(self):
+        print("bark")
+
+
+print(kg_to_lbs(12))
+print(utils.find_max([1,2,3,4]))
+
+# import ecommerce.shipping
+from ecommerce import shipping
+import random
+
+team = ["a","b","c","d"]
+print(random.choice(team))
+
+for i in range(3):
+    print(random.randint(10,20))
+
+
+class Dice():
+    def roll(self):
+        first = random.randint(1, 6)
+        second = random.randint(1, 6)
+        print(first, second)
+
+
+dice = Dice()
+dice.roll()
+
+from pathlib import Path
+
+path = Path()
+for file in path.glob("*.py"):
+    print(file)
+

@@ -159,70 +159,103 @@ def emoji_conv(msg):
 # except ZeroDivisionError:
 #     print("age cannot be 0")
 
-class Point:
-    def __init__(self,x ,y):
-        self.x = x
-        self.y = y
-    def move(self):
-        print("move")
-
-    def draw(self):
-        print("draw")
-
-
-class Person:
-    def __init__(self, name):
-        self.name = name
-
-    def talk(self):
-        print(f"Hi my name is {self.name}")
+# class Point:
+#     def __init__(self,x ,y):
+#         self.x = x
+#         self.y = y
+#     def move(self):
+#         print("move")
+#
+#     def draw(self):
+#         print("draw")
 
 
-person1 = Person("Jonn")
-person1.talk()
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def talk(self):
+#         print(f"Hi my name is {self.name}")
 
 
-class Animal:
-    def walk(self):
-        print("walk")
+# person1 = Person("Jonn")
+# person1.talk()
+
+
+# class Animal:
+#     def walk(self):
+#         print("walk")
 
 
 import utils
 from converters import kg_to_lbs
 
 
-class Dog(Animal):  # inheritance, use pass for an empty class
-    def bark(self):
-        print("bark")
+# class Dog(Animal):  # inheritance, use pass for an empty class
+#     def bark(self):
+#         print("bark")
 
 
-print(kg_to_lbs(12))
-print(utils.find_max([1,2,3,4]))
+# print(kg_to_lbs(12))
+# print(utils.find_max([1,2,3,4]))
 
 # import ecommerce.shipping
 from ecommerce import shipping
 import random
 
-team = ["a","b","c","d"]
-print(random.choice(team))
+# team = ["a","b","c","d"]
+# print(random.choice(team))
 
-for i in range(3):
-    print(random.randint(10,20))
-
-
-class Dice():
-    def roll(self):
-        first = random.randint(1, 6)
-        second = random.randint(1, 6)
-        print(first, second)
+# for i in range(3):
+#     print(random.randint(10,20))
 
 
-dice = Dice()
-dice.roll()
+# class Dice():
+#     def roll(self):
+#         first = random.randint(1, 6)
+#         second = random.randint(1, 6)
+#         print(first, second)
+
+
+# dice = Dice()
+# dice.roll()
 
 from pathlib import Path
 
-path = Path()
-for file in path.glob("*.py"):
-    print(file)
+# path = Path()
+# for file in path.glob("*.py"):
+#     print(file)
 
+##################################################
+
+import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
+
+# Load the workbook
+wb = xl.load_workbook('transactionspy.xlsx')
+
+# List all sheet names
+print(wb.sheetnames)
+
+# Assuming you want to access the first sheet
+sheet = wb[wb.sheetnames[0]]  # HOJA 1
+
+# Access a specific cell
+# cell = sheet.cell(1, 1)
+
+
+def process_workbook(file_name):
+    wb = xl.load_workbook(file_name)
+    sheet = wb[wb.sheetnames[0]]
+
+    for row in range(2, sheet.max_row + 1):
+        cell = sheet.cell(row, 3)
+        corrected_price = cell.value * 0.9
+        corrected_price_cell = sheet.cell(row, 4)
+        corrected_price_cell.value = corrected_price
+
+    values = Reference(sheet, min_row=2, max_row=sheet.max_row, min_col=4, max_col=4)
+    chart = BarChart()
+    chart.add_data(values)
+    sheet.add_chart(chart, 'e2')
+    wb.save(file_name)

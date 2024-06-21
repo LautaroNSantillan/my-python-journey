@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<span> REQUEST METHOD: {{request_method}}</span>
+    <span> REQUEST METHOD: {{ request_method }}</span>
 
-<form method="POST" action="/">
-    <input type="text" placeholder="first name" name="first_name">
-    <input type="text" placeholder="last name"  name="last_name">
-    <input type="submit">
-</form>
+    <form method="POST" action="/">
+        <input type="text" placeholder="first name" name="first_name">
+        <input type="text" placeholder="last name"  name="last_name">
+        <input type="submit">
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo.content }}</li>
+        {% endfor %}
+    </ul>
 {% endblock content %}

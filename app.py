@@ -1,9 +1,11 @@
 from flask import Flask,render_template, request, redirect, url_for
+from forms import Todo
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'pwd'
 
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET', 'POST'])
 def hello_world():
     req_method = request.method
     if req_method == 'POST':
@@ -15,6 +17,15 @@ def hello_world():
 @app.route('/name/<string:first_name>')
 def name(first_name):
     return f'{first_name}'
+
+
+@app.route('/todo',methods=['GET', 'POST'])
+def todo():
+    todo_form = Todo()
+    if todo_form.validate_on_submit():
+        print(todo_form.content.data)
+        return redirect('/')
+    return render_template('todo.html', form=todo_form)
 
 
 if __name__ == '__main__':
